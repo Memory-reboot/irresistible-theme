@@ -1,0 +1,288 @@
+body{
+	background-image: url("Images/background home.jpg");
+	display: flex;
+	margin: 0;
+	padding: 0;
+	background-attachment: fixed;
+  	background-position: 35%;
+  	background-position-y: 20%;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+	position: relative;
+	justify-content: center;
+	overflow: hidden;
+}
+.background{
+	background-image: url("Images/background home.jp");
+	height: 100vh;
+	width: 100vw;
+	touch-action: none;
+	animation: blur 0.5s ease-out;
+	background-attachment: fixed;
+  	background-position: 35%;
+  	background-position-y: 20%;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+	position: relative;
+}
+	@keyframes blur {
+            from {
+                filter: blur(8px);
+            }
+            to {}
+    }
+
+
+      
+
+/*Diagonal*/
+	.container{
+	    aspect-ratio: 1;
+	    position: fixed;
+	    bottom: 0;
+	    right: 0;
+	}
+		.triangle1{
+			width: 0;
+			height: 0;
+			bottom: 0;
+			right: 0;
+			border-right: 0px solid transparent;
+			border-left: 55vh solid transparent;
+			border-bottom: 55vh solid black;
+			opacity: 0.8;
+			position: absolute;
+	    }
+		/*	Icons*/
+				.item span{
+					position: fixed;
+					}
+				.item span ion-icon{
+					color: white; font-size: 3.8vh; --ionicon-stroke-width: 24px; transition: font-size 0.2s,color 0.2s;
+				}
+				.item span ion-icon:hover{
+					font-size: 7vh; --ionicon-stroke-width: 24px;
+					transition-timing-function: ease-in-out;
+				}
+					.item span:nth-child(1) ion-icon:hover {
+					    color: #FF0000; 
+					}
+					.item span:nth-child(2) ion-icon:hover {
+					    color: #25D366;
+					}
+					.item span:nth-child(3) ion-icon:hover {
+					    color: #DD2A7B;
+					}
+					.item span:nth-child(4) ion-icon:hover {
+					    color: floralwhite;
+					}
+
+
+
+	    .triangle2 {
+			width: 0;
+			height: 0;
+			bottom: 0;
+			right: 0;
+			border-right: 0px solid transparent;
+			border-left: 45vh solid transparent;
+			border-bottom: 45vh solid #d5638d;
+			position: absolute;
+		}
+			.date{
+				bottom:12vh;
+				right:12vh;
+				position: fixed;
+				background-color: transparent;
+				font-family: Arial;
+				font-weight: 500;
+				color: white;
+				rotate: -45deg;
+			}
+				#dayOfWeek {
+			    	font-size: 5vh;
+			    	margin-bottom: -0.50vh;
+			    	margin-top: 0;
+				}
+				#formattedDate{
+					font-size: 3vh;
+					margin:0;
+					text-align: justify;
+				}
+
+
+	.container2{
+	    aspect-ratio: 1;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	}
+	    .triangle3 {
+			border-right: 18vh solid transparent;
+			border-top: 18vh solid black;
+			opacity: 0.7;
+		}
+	    .triangle4 {
+			width: 0;
+			height: 0;
+			top: 0;
+			left: 0;
+			border-left: 0px solid transparent;
+			border-right: 10vh solid transparent;
+			border-top: 10vh solid #d5638d;
+			position: absolute;
+		}
+
+
+
+
+/*Navigation Bar*/
+	.sidenav {
+				display: flex;
+				flex-direction: column;
+	            height: 100%;
+	            width: 8vh; /* Set the width of the sidebar */
+	            max-width: 60px;
+	            position: fixed;
+	            z-index: 1; /* Stay on top */
+	            top: 0; /* Stay at the top */
+	            right: 0;
+	            background-color: #a31a41;
+	            overflow-x: hidden; /* Disable horizontal scroll */
+	            box-sizing: border-box;
+	            align-content: center;
+	            
+	        }
+	        .pfp {
+	        	background-image: url(Images/pfp.gif);
+	        	background-position: center;
+	        	background-size: cover;
+	        	width: 6vh;
+			    height: 6vh;
+			    background-color: blue;
+			    border-radius: 50%;
+			    margin: 3vh auto;
+
+	        }
+	        .time-container {
+			    font-family: Arial, sans-serif;
+			    font-size: 5vh;
+			    color: white;
+			    transform: rotate(90deg);
+			    white-space: nowrap;
+			    
+			    
+	        }
+
+	        .navigation {
+			    position: fixed;
+			    right: 0;
+			    bottom: 0;
+			    width: 8vh;
+			    max-width: 60px;
+			    justify-content: center;
+			    margin-bottom: 2vh;
+			}
+			.navigation ul {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 0 auto;
+				padding: 0;
+				position: relative;
+
+			}
+			.navigation ul li{
+				list-style: none;
+				padding: 3vh 0;
+			}
+	        .navigation ul li a ion-icon{
+	        	color: white;
+	        	font-size: 3vh;
+	        	--ionicon-stroke-width: 40px;
+	        	transition: transform 0.2s;
+	        }
+	        .navigation ul li.active a ion-icon{
+	        	transform: translateX(-8px);
+	        }
+	        .navigation ul li:nth-child(1).active ~ .indicator{
+	        	transform: translateX(-10px);
+	        }
+	        .navigation ul li:nth-child(2).active ~ .indicator{
+	        	transform: translateY(calc((20px + 3vh) * -2));
+	        }
+	        .navigation ul li:nth-child(3).active ~ .indicator{
+	        	transform: translateY(calc((20px + 3vh) * -3));
+	        }
+	        .navigation ul li:nth-child(4).active ~ .indicator{
+	        	transform: translateY(calc((20px + 3vh) * -4));
+	        }
+	        .indicator{
+	        	position: absolute;
+	        	height: 2vh;
+	        	width: 0.6vh;
+	        	background-color: white;
+	        	opacity: 0.8;
+	        	right: 5px;
+	        	border-radius: 0.3vh;
+	        	bottom: 34vh;
+	        	transition: transform 0.2s ease-in-out;
+	        }
+
+
+
+/*Search Bar*/
+.search-container {
+    width: 40vw;
+    justify-content: center;
+    top: 30%;
+    position: fixed;
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1vh 1vh;
+    border: 2px solid #dfe1e5;
+    border-radius: 5vh;
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    opacity: 0.2;
+    transition: opacity 0.3s;
+}
+.search-box:hover, .search-box:focus-within {
+    opacity: 1;
+    transition-timing-function: ease-in;
+}
+.search-box input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    width: 30vw;
+}
+.search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+.search-box button ion-icon {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 600px), (max-height: 415px) {
+    .search-container {
+        width: 220px;
+        margin-left: 20px;
+        margin-right: 50px;
+        left: 2vw;
+        top: 20%;
+
+    }
+    .search-box input {
+        width: 40vw;
+    }
+}
+
