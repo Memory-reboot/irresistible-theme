@@ -1,0 +1,460 @@
+:root {
+	--corner:#000e61;
+	--cornerstrip:white;
+	--diagonalicons:black;
+	--sidenav:#1c1f6b;
+	--sidenavicons:white;
+	--backgroundimage:url("../Images/background home.jpg");
+	--backgroundcolor: #63abdd;
+	--animation1:shiftAndShow 0.4s forwards;
+}
+html, body {
+	height: 100vh;
+	width: 100vw;
+	background-color: var(--backgroundcolor);
+	display: flex;
+	margin: 0;
+	padding: 0;
+	justify-content: center;
+	overflow: hidden;
+	right: calc(min(8vh, 60px)); /* It will exclude sidenav */
+}
+
+.blurbg-container {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.background {
+    background-image: var(--backgroundimage); /* Ensure this CSS variable is set */
+    height: 100vh;
+    width: 100vw;
+    background-position: 80% 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    animation: zoomout 0.5s ease forwards; /* Apply zoomout animation */
+}
+
+.background-overlay {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-color: transparent; /* Transparent overlay */
+    z-index: 2;
+    animation: blur 0.5s ease forwards;
+    pointer-events: none; /* Ensure overlay doesn't block interaction */
+}
+
+@keyframes zoomout {
+    from {
+        transform: scale(1.1); /* Start with a slightly zoomed-in image */
+    }
+    to {
+        transform: scale(1); /* End with the image at its original size */
+    }
+}
+
+@keyframes blur {
+    from {
+        backdrop-filter: blur(5px);
+    }
+    to {
+        backdrop-filter: blur(0);
+    }
+}
+
+
+a {
+    outline: none; /* Remove focus outline */
+    -webkit-tap-highlight-color: transparent; /* Remove blue highlight on mobile WebKit browsers */
+}
+
+
+
+/*Search Bar*/
+.search-container {
+    width: 50vw;
+    justify-content: center;
+    top: 30%;
+    position: fixed;
+    z-index: 3;
+	.search-box {
+	    display: flex;
+	    align-items: center;
+	    width: 100%;
+	    padding: 1vh 1vh;
+	    border: 2px solid #dfe1e5;
+	    border-radius: 5vh;
+	    background-color: #fff;
+	    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+	    opacity: 0.2;
+	    transition: opacity 0.3s;
+	}
+	.search-box:hover, .search-box:focus-within {
+	    opacity: 1;
+	    transition-timing-function: ease-in;
+	}
+	.search-box input {
+	    flex-grow: 1;
+	    border: none;
+	    outline: none;
+	    font-size: 1em;
+	    width: 30vw;
+	}
+	.search-box button {
+	    background: none;
+	    border: none;
+	    cursor: pointer;
+	    outline: none;
+		.search-box button ion-icon {
+		    width: 20px;
+		    height: 20px;
+	}
+	}
+	@media (max-width: 600px), (max-height: 415px) {
+	    .search-container {
+	        width: 220px;
+	        margin-left: 20px;
+	        margin-right: 50px;
+	        left: 2vw;
+	        top: 20%;
+	    }
+	    .search-box input {
+	        width: 40vw;
+	    }
+	}
+}
+
+/*Diagonal*/
+	.container{
+	    aspect-ratio: 1;
+	    position: fixed;
+	    bottom: 0;
+	    right: 0;
+	    animation: var(--animation1);
+	    z-index: 3;
+	}
+		.triangle1{
+			width: 0;
+			height: 0;
+			bottom: 0;
+			right: 0;
+			border-right: 0px solid transparent;
+			border-left: 55vh solid transparent;
+			border-bottom: 55vh solid var(--cornerstrip);
+			opacity: 0.8;
+			position: absolute;
+			animation: var(--animation1);
+	    }
+			.item span{
+				position: fixed;
+				animation: var(--animation1);
+				z-index: 3;
+			}
+			.item span ion-icon{
+				color: var(--diagonalicons); 
+				font-size: 3.8vh; 
+				--ionicon-stroke-width: 24px; 
+				transition: font-size 0.2s, color 0.2s;
+			}
+			.item span ion-icon:hover{
+				font-size: 7vh; 
+				--ionicon-stroke-width: 24px;
+				transition-timing-function: ease-in-out;
+			}
+				.item span:nth-child(1) ion-icon:hover {
+				    color: #FF0000; 
+					}
+				.item span:nth-child(2) ion-icon:hover {
+				    color: #25D366;
+					}
+				.item span:nth-child(3) ion-icon:hover {
+				    color: #DD2A7B;
+					}
+				.item span:nth-child(4) ion-icon:hover {
+				    color: black;
+					}
+				
+
+	    .triangle2 {
+			width: 0;
+			height: 0;
+			bottom: 0;
+			right: 0;
+			border-right: 0px solid transparent;
+			border-left: 43vh solid transparent;
+			border-bottom: 43vh solid var(--corner);
+			position: absolute;
+			animation: var(--animation1);
+		}
+			.date{
+				right: 9vh;
+				bottom: 10vh;
+				align-content: center:;
+				position: fixed;
+				background-color: transparent;
+				font-family: Arial;
+				font-weight: 500;
+				color: white;
+				rotate: -45deg;	
+				animation: var(--animation1);
+			}		
+				#dayOfWeek {
+			    	font-size: 5vh;
+			    	margin-bottom: -0.50vh;
+			    	margin-top: 0; 
+			    	text-align: center;
+				}
+				#formattedDate{
+					font-size: 3vh;
+					margin:0;
+					text-align: center;
+					width: 150px;
+				}
+@keyframes shiftAndShow {
+    0% {
+        transform: translate(50px, 50px);
+        opacity: 0;
+    }
+    100% {
+    }
+}
+	.container2{
+	    aspect-ratio: 1;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    animation: shiftAndShow2 0.4s forwards;
+	    z-index: 3;
+	}	
+	    .triangle3 {
+			border-right: 16vh solid transparent;
+			border-top: 16vh solid var(--cornerstrip);
+			opacity: 0.7;
+		}
+	    .triangle4 {
+			width: 0;
+			height: 0;
+			top: 0;
+			left: 0;
+			border-left: 0px solid transparent;
+			border-right: 8vh solid transparent;
+			border-top: 8vh solid var(--corner);
+			position: absolute;
+		}
+@keyframes shiftAndShow2 {
+    0% {
+        transform: translate(-50px, -50px);
+        opacity: 0; /* Makes the element visible */
+    }
+    100% {
+    }
+}
+
+
+/*Navigation Bar*/
+        .sidenav {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 8vh; /* Initial width */
+            min-width: 8vh; /* Minimum width */
+            max-width: 100vw; /* Full screen width */
+            position: fixed;
+            z-index: 4;
+            top: 0;
+            right: 0;
+            background-image: url("../Images/sidebar.jpg");
+            background-size: cover;
+            background-position: 20%;
+            background-color: #333; /* Example color */
+            overflow-x: hidden;
+            box-sizing: border-box;
+            align-content: center;
+            transition: width 0.3s ease; /* Smooth transition */
+            touch-action: none; /* Prevent default touch actions */
+
+
+            text-align: center;
+            font-family: roboto;
+            font-weight: bold;
+            font-size: 20px;
+        }
+	    .sidenav.expand {
+            width: 100vw; /* Full screen width */
+        }
+        .bar{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 8vh; /* Initial width */
+            min-width: 8vh; /* Minimum width */
+            max-width: 100vw; /* Full screen width */
+            position: absolute;
+            z-index: 4;
+            top: 0;
+            left: 0;
+            background-color: var(--sidenav); /* Example color */
+            box-sizing: border-box;
+            align-content: center;
+            transition: width 0.3s ease; /* Smooth transition */
+            touch-action: none; /* Prevent default touch actions */
+            font-weight: normal;
+        }
+		.pfp {
+			background-image: url(../Images/pfp.gif);
+			background-position: center;
+			background-size: cover;
+			aspect-ratio: 1;
+			height: 6vh;
+			background-color: transparent;
+			border-radius: 50%;
+			margin: 3vh auto;
+		}
+		.time-container {
+			font-family: Arial, sans-serif;
+			font-size: 5vh;
+			color: var(--sidenavicons);
+			transform: rotate(90deg);
+			white-space: nowrap;
+		}
+		.navigation {
+		    position: absolute;
+		    left: 0;
+		    bottom: 0;
+		    width: 8vh;
+		    max-width: 60px;
+		    justify-content: center;
+		    margin-bottom: 2vh;
+		    display: flex;
+			height: 36vh;
+		}
+			.navigation ul {
+			    display: flex;
+			    flex-direction: column;
+				flex-grow: 1;
+			    align-items: center;
+			    margin: 0;
+			    padding: 0;
+			}
+				.navigation ul li {
+					list-style: none;
+				    flex-grow: 1;
+				    display: flex;
+				    align-items: center; /* Center items vertically */
+				    justify-content: center;
+				}
+					.navigation ul li a ion-icon {
+					    color: var(--sidenavicons);
+					    font-size: 3vh;
+					    --ionicon-stroke-width: 40px;
+					    transition: transform 0.2s;
+					}
+						.navigation ul li.active a ion-icon {
+						    transform: translateX(-8px);
+						    outline: none;
+						}
+	.indicator {
+	    position: absolute;
+	    height: 2vh;
+	    width: 0.6vh;
+	    top: 3vh;
+	    background-color: var(--sidenavicons);
+	    opacity: 0.8;
+	    right: 5px;
+	    bottom: 32.5vh;
+	    border-radius: 0.3vh;
+	    transition: transform 0.2s ease-in-out;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Animated text*/
+@media (max-width: 600px),(max-height: 415px){
+  .header{
+      display: none;
+  }
+  body{
+      right: calc(min(8vh, 60px)); /* It will exclude sidenav */
+
+  }
+}
+.header {
+  position: fixed;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  font-size: 4vh;
+  font-weight: 200;
+  padding: 0 15vh;
+  top: -20px;
+  z-index: 5;
+}
+
+#head1, #head2, #head3, #head4, #head5 {
+  opacity: 0;
+  animation: fadeOut 1 5s ease-in;
+  z-index: 4;
+}
+
+#head2 { animation-delay: 6s; }
+#head3 { animation-delay: 12s; }
+#head4 { animation-delay: 17s; }
+#head5 { 
+  animation: finalFade 1 5s ease-in forwards;
+  animation-delay: 22s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  80% { opacity: .9; }
+  100% { opacity: 0; }
+}
+
+@keyframes finalFade {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  80% { opacity: .9; }
+  100% { opacity: 1; }
+}
+
+#footer {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  color: white;
+  position: fixed;
+  transform: translate(95vw, 90vh);
+}
+
+/*END*/

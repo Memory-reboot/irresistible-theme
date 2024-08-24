@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome</title>
+
+	<link rel="stylesheet" type="text/css" href="List Styles/Home.css" id="theme-stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+	<style type="text/css">
+	:root {
+	--corner:#000e61;
+	--cornerstrip:white;
+	--diagonalicons:black;
+	</style>
+</head>
+
+<body>
+
+	
+<!-- Background Image -->
+	<div class="blurbg-container"><div class="blurbg"></div><div class="background-overlay"></div></div>
+	<div class="backgroundshadow"></div>
+	<div class="background"></div>
+
+
+
+<!-- Animated Text -->
+	<p id='head1' class='header'>Awesome designs</p>
+	<p id='head2' class='header'>Just</p>
+	<p id='head3' class='header'>For you</p>
+	<p id='head4' class='header'>Simple and awesome</p>
+	<p id='head5' class='header'>Welcome</p>
+
+
+
+<!-- Search Bar -->
+	<div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search Google" />
+            <button onclick="performSearch()">
+                <ion-icon name="search-outline">Search</ion-icon>
+            </button>
+        </div>
+    </div>
+    	<script>
+	        document.getElementById('searchInput').addEventListener('keypress', function(event) {
+	            if (event.key === 'Enter') {
+	                performSearch();
+	            }
+	        });
+
+	        function performSearch() {
+	            const query = document.getElementById('searchInput').value;
+	            if (query) {
+	                const searchUrl = 'https://www.google.co.in/search?q=' + encodeURIComponent(query);
+	                window.location.href = searchUrl;
+	            }
+	        }
+	        document.addEventListener('DOMContentLoaded', (event) => {
+			    const input = document.getElementById('search-input');
+			    const button = document.getElementById('search-button');
+
+			    input.addEventListener('input', () => {
+			        if (input.value.trim() === '') {
+			            button.disabled = true;
+			        } else {
+			            button.disabled = false;
+			        }
+			    });
+			});
+    	</script>   
+
+
+
+<!-- Diagonal -->
+	<div class="container">
+		<div class="triangle1"></div>
+		<div class="triangle2"></div>
+		<!-- DATE -->
+			<div class="date"><p id="dayOfWeek"></p>
+			<p id="formattedDate"></p>
+			<script type="text/javascript" src="formatedDate.js"></script></div>
+			</div>
+	</div>
+	<div class="container2">
+		<div class="triangle3"></div>
+		<div class="triangle4"></div>
+	</div>
+	
+
+	
+<!-- Diagonal Icons -->
+	<div class="item">
+		<span class="icon" style="bottom:32vh; right:calc(4.8vh + 8vh * 1);"><a href="https://youtube.com"><ion-icon name="logo-youtube" >Youtube</ion-icon></a></span>
+	
+		<span class="icon" style="bottom:24vh; right:calc(4.8vh + 8vh * 2);"><a href="https://web.whatsapp.com"><ion-icon name="logo-whatsapp" >Whatsapp</ion-icon></a></span>
+	
+		<span class="icon" style="bottom:16vh; right:calc(4.8vh + 8vh * 3);"><a href="https://instagram.com"><ion-icon name="logo-instagram">Instagram</ion-icon></a></span>
+	
+		<span class="icon" style="bottom:08vh; right:calc(4.8vh + 8vh * 4);"><a href="https://google.com"><ion-icon name="logo-google">Google</ion-icon></a></span>
+	</div>
+	
+
+
+<!-- Navigation Bar -->
+	<div class="sidenav" id="sidenav">WORK IN PROGRESS
+<script>
+    const sidenav = document.getElementById('sidenav');
+    let startX = 0;
+    let startWidth = 0;
+    let isDragging = false;
+
+    function updateSidebarWidth(newWidth) {
+        // Limit the sidebar width to the screen size and set minimum width
+        sidenav.style.width = `${Math.min(window.innerWidth, Math.max(8 * window.innerHeight / 100, newWidth))}px`;
+    }
+
+    function handleTouchMove(e) {
+        if (!isDragging) return;
+        const currentX = e.touches[0].clientX;
+        const newWidth = startWidth + (startX - currentX);
+        requestAnimationFrame(() => updateSidebarWidth(newWidth));
+    }
+
+    function handleTouchEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        const currentWidth = parseInt(getComputedStyle(sidenav).width, 10);
+        sidenav.style.width = currentWidth >= window.innerWidth / 2 ? '100vw' : '8vh';
+    }
+
+    sidenav.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startWidth = sidenav.offsetWidth;
+        isDragging = true;
+    });
+
+    sidenav.addEventListener('touchmove', handleTouchMove);
+    sidenav.addEventListener('touchend', handleTouchEnd);
+</script>
+
+
+
+    <div class="bar">
+		<div class="pfp"></div>
+        
+
+		<div class="time-container">
+        <div id="current-time">Loading time...</div>
+	    </div>
+	    <script>
+	        function updateTime() {
+	            const now = new Date();
+	            const hours = now.getHours().toString().padStart(2, '0');
+	            const minutes = now.getMinutes().toString().padStart(2, '0');
+	            document.getElementById('current-time').textContent = `${hours}:${minutes}`;
+	        }
+
+	        setInterval(updateTime, 1000);
+	        updateTime(); // Initialize immediately
+	    </script>
+
+
+	    <div class="navigation">
+		<ul>
+	        <li data-stylesheet="List Styles/Home.css" class="list active"><a href="#"><span class="icon" style="bottom:31vh;"><ion-icon name="Home-outline" >Home</ion-icon></span></a></li>
+
+	        <li data-stylesheet="List Styles/Whether.css" class="list"><a href="#"><span class="icon" style="bottom:23vh;"><ion-icon name="cloudy-night-outline" >Whether</ion-icon></span></a></li>
+
+	        <li data-stylesheet="List Styles/Music.css" class="list"><a href="#"><span class="icon" style="bottom:15vh;"><ion-icon name="musical-notes" >Music</ion-icon></span></a></li>
+
+	        <li data-stylesheet="List Styles/Calendar.css" class="list"><a href="#"><span class="icon" style="bottom:07vh;"><ion-icon name="calendar-outline" >Calendar</ion-icon></span></a></li>
+    	</ul>
+    	<div class="indicator"></div>
+    	</div>
+    </div>
+    </div>
+
+
+
+<!-- Main Script -->
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.navigation ul li');
+    const indicator = document.querySelector('.indicator');
+    const themeStylesheet = document.getElementById('theme-stylesheet');
+
+    function updateIndicator() {
+        const activeItem = document.querySelector('.navigation ul li.active');
+        if (activeItem) {
+            const index = Array.from(navItems).indexOf(activeItem);
+            const itemHeight = activeItem.offsetHeight;
+            indicator.style.transform = `translateY(${index * itemHeight}px)`;
+        }
+    }
+
+    // Initial update
+    updateIndicator();
+
+    // Add event listener to update indicator and stylesheet on item click
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+
+            // Update indicator position
+            updateIndicator();
+
+            // Change stylesheet
+            const stylesheet = item.getAttribute('data-stylesheet');
+            themeStylesheet.setAttribute('href', stylesheet);
+        });
+    });
+
+    // Update indicator on window resize to maintain responsiveness
+    window.addEventListener('resize', updateIndicator);
+	});
+	</script>
+
+
+
+</body>
+
+
+</html>
